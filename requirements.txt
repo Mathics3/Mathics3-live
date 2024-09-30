@@ -45,3 +45,4 @@ plotly>=5,<6
 bqplot
 
 build
+wheel
