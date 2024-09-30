@@ -1,0 +1,3 @@
+[submodule "mathics-core"]
+	path = mathics-core
+	url = https://github.com/davidar/mathics-core.git
