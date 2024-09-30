@@ -1,3 +1,6 @@
 [submodule "mathics-core"]
 	path = mathics-core
 	url = https://github.com/davidar/mathics-core.git
+[submodule "mathics-scanner"]
+	path = mathics-scanner
+	url = https://github.com/Mathics3/mathics-scanner.git
