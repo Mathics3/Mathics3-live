@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Mathics3 Live Shell</title>
+    <style>
+      :root {
+        --primary-color: #16599c;
+        --primary-light: #2171c7;
+        --text-color: #333;
+        --bg-color: #f5f7fa;
+        --card-bg: #ffffff;
+      }
+
+      .container, 
+      .sidebar_card, 
+      .row,
+      #main,
+      aside {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background-color: var(--primary-color);
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+      }
+
+      header h1 a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.8rem;
+      }
+
+      header h1 a:hover {
+        color: #e0e0e0;
+      }
+
+      .row {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      #main {
+        flex: 1;
+      }
+
+      aside {
+        width: 300px;
+      }
+
+      h1, h2, h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .sidebar_card {
+        background: var(--card-bg);
+        border-radius: 8px;
+        padding: 0.5rem 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      iframe {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+      }
+
+      pre {
+        background: #f1f1f1;
+        padding: 1rem;
+        border-radius: 4px;
+        overflow-x: auto;
+        margin: 1rem 0;
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--primary-light);
+        text-decoration: underline;
+      }
+
+      footer {
+        border-top: 1px solid #ddd;
+        padding: 2rem 0;
+        text-align: center;
+        color: #666;
+      }
+
+      footer p {
+        margin-bottom: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .row {
+          flex-direction: column;
+        }
+        
+        aside {
+          width: 100%;
+        }
+      }
+    </style>
+    <script>
+      function getURLParameter(name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+      }
+
+      function statementsToCodes(statements) {
+        var statements = statements
+            .replace('\r\n', '\n')
+            .replace('\r', '\n')
+            .split(/#--[^\n]*/);
+        var codes = [];
+        for (const idx in statements) {
+          statement = statements[idx].trim()
+          if (statement) {
+            codes.push(statement);
+          }
+        }
+        return codes;
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var iframe_src = "./repl/index.html?toolbar=1&kernel=python&code=%25pip%20install%20Mathics3%20Mathics3-notebook-frontends%0A%25load_ext%20mathics.frontend.jupyter";
+        var statements = getURLParameter('evaluate');
+        if (statements) {
+          codes = statementsToCodes(statements);
+          for (const idx in codes) {
+            iframe_src += '&code=' + encodeURIComponent(codes[idx]);
+          }
+        }
+        document.getElementById('live-iframe').src = iframe_src;
+      });
+    </script>
+
+    <!--
+      # jupyter-config-data
+
+      The JSON in `jupyter-lite.json` is the last that will be loaded by most
+      child `index.html` pages, and every field can be overridden.
+
+      See the recognized schema as described in the documentation:
+
+      - https://jupyterlite.rtfd.io/en/latest/reference/schema.html
+
+      Notes
+        - fields that...
+          - are relative paths values
+            - will have the parent directory of _this_ file appended, accounting
+              for "magic" hosts which redirect to `{:path}index.html` to `{:path}`,
+              with or without a slash
+        - some fields, such as `federated_extensions` will be _added together_
+    -->
+    <script id="jupyter-config-data" type="application/json" data-jupyter-lite-root=".">
+      {}
+    </script>
+    <!--
+      # jupyter-lite-root
+
+      The source of truth for relative path locations. The `.` means _this_
+      is the root, and will redirect to the `appUrl` defined in
+      `.jupyter-lite/#jupyter-config-data`.
+    -->
+    <script type="module">
+      // await import('./config-utils.js');
+    </script>
+    <!-- that's it, there shouldn't be anything below here in head! -->
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1><a href="index.html">Mathics3 Live Shell</a></h1>
+      </div>
+    </header>
+    <div class="container">
+      <section class="row" id="main">
+        <div id="content">
+          <h1>Mathics3 Live</h1>
+          <iframe
+              id="live-iframe"
+              width="100%"
+              height="500px"
+          >
+          </iframe>
+          <div id="about_shell" class="sidebar_card">
+            <h3>About this page</h3>
+            <p>Mathics3 Live shell allows you to use Mathics3 in the browser without the need to install anything on your computer.</p>
+            <p>The following commands are executed by default:</p>
+            <pre>[1]: %pip install Mathics3 Mathics3-notebook-frontends
+     %load_ext mathics.frontend.jupyter</pre>
+            <p>Mathics3 Live shell is powered by <a href="https://jupyterlite.readthedocs.io/en/stable/">JupyterLite</a>. It can take up to 30 seconds before the shell code and libraries load completely and become available for using interactively.</p>
+          </div>
+        </div>
+        <aside id="sidebar">
+          <div id="usage" class="sidebar_card">
+            <h3>Instructions</h3>
+            <div class="content">
+              <p>Press <strong>SHIFT+ENTER</strong> to run the code or use the Run button in the toolbar.</p>
+              <p id="loading_message">Note it can take up to <strong>30 seconds</strong> before the shell finishes loading and is ready to run commands.</p>
+            </div>
+          </div>
+          <div id="examples" class="sidebar_card">
+            <h3>Example session</h3>
+            <div class="content">
+              <p><a href="./lab/index.html?path=mathics.ipynb">Mathics3 Demo Notebook</a></p>
+            </div>
+          </div>
+        </aside>
+      </section>
+      <footer>
+        <p>Copyright © 2025 Mathics3 Development Team.</p>
+        <p>This page is open source. Fork <a href="https://github.com/Mathics3">the project on GitHub</a> to edit it.</p>
+      </footer>
+    </div>
+  </body>
+</html>
