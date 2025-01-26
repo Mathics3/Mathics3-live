@@ -1,6 +1,3 @@
-[submodule "mathics-core"]
-	path = mathics-core
-	url = https://github.com/davidar/mathics-core.git
-[submodule "mathics-scanner"]
-	path = mathics-scanner
-	url = https://github.com/Mathics3/mathics-scanner.git
+[submodule "Mathics3-notebook-frontends"]
+	path = Mathics3-notebook-frontends
+	url = https://github.com/Mathics3/Mathics3-notebook-frontends.git
