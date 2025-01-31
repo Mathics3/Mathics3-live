@@ -26,6 +26,8 @@ jobs:
       - name: Build the JupyterLite site
         run: |
           make
+      - name: Deploy to live.mathics.org
+        run: echo live.mathics.org > dist/CNAME
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
