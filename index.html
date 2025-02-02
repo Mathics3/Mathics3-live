@@ -144,7 +144,7 @@
       }
 
       document.addEventListener('DOMContentLoaded', function() {
-        var iframe_src = "./repl/index.html?toolbar=1&kernel=python&code=%25pip%20install%20Mathics3%20Mathics3-notebook-frontends%0A%25load_ext%20mathics.frontend.jupyter";
+        var iframe_src = "./repl/index.html?toolbar=1&kernel=python&code=%25pip%20install%20Mathics3%20Mathics3-notebook-frontends%0A%25load_ext%20mathics3_kernel.frontend.jupyter";
         var statements = getURLParameter('evaluate');
         if (statements) {
           codes = statementsToCodes(statements);
@@ -210,7 +210,7 @@
             <p>Mathics3 Live shell allows you to use Mathics3 in the browser without the need to install anything on your computer.</p>
             <p>The following commands are executed by default:</p>
             <pre>[1]: %pip install Mathics3 Mathics3-notebook-frontends
-     %load_ext mathics.frontend.jupyter</pre>
+     %load_ext mathics3_kernel.frontend.jupyter</pre>
             <p>Mathics3 Live shell is powered by <a href="https://jupyterlite.readthedocs.io/en/stable/">JupyterLite</a>. It can take up to 30 seconds before the shell code and libraries load completely and become available for using interactively.</p>
           </div>
         </div>
