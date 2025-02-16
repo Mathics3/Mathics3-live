@@ -11,10 +11,18 @@ JupyterLite is being tested against modern web browsers:
 
 ## Installing and running locally
 
+Install this code in a virtual Python environment:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
+
+The above needs to be done only once.
+
+Once the virtual environment has been set up with the packages installed, to run the server:
+
+```bash
 make serve
 ```
 
