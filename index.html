@@ -13,8 +13,8 @@
         --card-bg: #ffffff;
       }
 
-      .container, 
-      .sidebar_card, 
+      .container,
+      .sidebar_card,
       .row,
       #main,
       aside {
@@ -117,7 +117,7 @@
         .row {
           flex-direction: column;
         }
-        
+
         aside {
           width: 100%;
         }
@@ -192,13 +192,19 @@
   <body>
     <header>
       <div class="container">
-        <h1><a href="index.html">Mathics3 Live Shell</a></h1>
+	<a href="https://mathics.org" style="text-decoration: none">
+	  <img id="logo" class="load" src="/img/logo-heptatom.svg" height="64" alt="Logo" />
+	</a>
+	<img id="logotext" class="load" src="/img/Mathics3-logo.svg" height="64px" alt="Mathics3" />
+	<div class="menu">
+	  <a href="https://github.com/Mathics3" title="Go to Mathics3 GitHub repository"><i class="fa fa-github"></i></a>
+	</div>
       </div>
     </header>
     <div class="container">
       <section class="row" id="main">
         <div id="content">
-          <h1>Mathics3 Live</h1>
+          <h1>Mathics3 Live Shell</h1>
           <iframe
               id="live-iframe"
               width="100%"
@@ -231,7 +237,7 @@
         </aside>
       </section>
       <footer>
-        <p>Copyright © 2025 Mathics3 Development Team.</p>
+        <p>Copyright © 2025-2026 Mathics3 Development Team.</p>
         <p>This page is open source. Fork <a href="https://github.com/Mathics3">the project on GitHub</a> to edit it.</p>
       </footer>
     </div>
