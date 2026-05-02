@@ -1,4 +1,4 @@
-.PHONY: all serve wheel
+.PHONY: all clean-cache clean-serve serve wheel
 NOTEBOOK_VERSION=1.0.0
 
 NOTEBOOK_WHEEL=pypi/Mathics3_notebook_frontends-$(NOTEBOOK_VERSION)-py3-none-any.whl
@@ -6,6 +6,11 @@ NOTEBOOK_WHEEL=pypi/Mathics3_notebook_frontends-$(NOTEBOOK_VERSION)-py3-none-any
 all: $(NOTEBOOK_WHEEL)
 	jupyter lite build --contents content --output-dir dist
 	cp -f index.html dist/index.html
+
+#: Remove Jupyter Cache file
+clean-cache:
+	rm .jupyterlite.doit.db || true;
+
 
 #: Make Build everything
 $(NOTEBOOK_WHEEL):
@@ -15,3 +20,6 @@ $(NOTEBOOK_WHEEL):
 #: Start a HTTP webserver running Mathics3-live
 serve: all
 	cd dist && python3 -m http.server
+
+#: Clean Jupyter cache and start a HTTP webserver running Mathics3-live
+clean-serve: all clean-cache serve
