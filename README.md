@@ -9,6 +9,12 @@ JupyterLite is being tested against modern web browsers:
 - Firefox 90+
 - Chromium 89+
 
+On Ubuntu, install `libarchive-dev`
+
+```console
+sudo apt install libarchive-dev
+```
+
 ## Installing and running locally
 
 
@@ -44,13 +50,20 @@ make serve
 
 ## Making changes
 
+### Changes in this Mathics3-live
+
 If `index.html` is updated or possibly other changes, the JupyterLite cache, `.jupyterlite.doit.db` may need to be removed.
 
 ```console
 make clean-serve
 ```
 
-will both start the server after first reming
+will both start the server after first removing the JupyterLite cache.
+
+### Changes in Mathics3-notebook-frontends
+
+You'll need to update the submodule here. One way is just to issue git command like `git pull` inside the `Mathics3-notebook-frontends` directory.
+
 
 ## Further Information and Updates
 

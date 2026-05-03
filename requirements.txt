@@ -52,6 +52,7 @@ charset-normalizer>=2.0.0,< 4.0.0
 # Python: plotting libraries (optional)
 plotly>=5,<6
 bqplot
+libarchive-c
 
 build
 wheel
