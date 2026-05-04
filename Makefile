@@ -1,14 +1,30 @@
-.PHONY: all serve
+.PHONY: all clean-cache clean-serve serve runserver wheel
 
+# NOTEBOOK_VERSION Mathics3-Live version. The wheel name has this number in it.
+NOTEBOOK_VERSION ?= 1.0.0
+
+PYTHON ?= python
+HTTP_PORT ?= 8000
+
+NOTEBOOK_WHEEL=pypi/Mathics3_notebook_frontends-$(NOTEBOOK_VERSION)-py3-none-any.whl
 #: Build everything
-all: pypi/Mathics3_notebook_frontends-0.1.0-py3-none-any.whl
+all: $(NOTEBOOK_WHEEL)
 	jupyter lite build --contents content --output-dir dist
 	cp -f index.html dist/index.html
 
-pypi/Mathics3_notebook_frontends-0.1.0-py3-none-any.whl:
+#: Remove Jupyter Cache file
+clean-cache:
+	rm .jupyterlite.doit.db || true;
+
+
+#: Make Build everything
+$(NOTEBOOK_WHEEL):
 	cd Mathics3-notebook-frontends && python3 -m build
-	cp -f Mathics3-notebook-frontends/dist/[Mm]athics3_notebook_frontends-0.1.0-py3-none-any.whl $@
+	cp -f Mathics3-notebook-frontends/dist/[Mm]athics3_notebook_frontends-${NOTEBOOK_VERSION}-py3-none-any.whl $@
 
 #: Start a HTTP webserver running Mathics3-live
-serve: all
-	cd dist && python3 -m http.server
+runserver serve: all
+	cd dist && python3 -m http.server $(HTTP_PORT)
+
+#: Clean Jupyter cache and start a HTTP webserver running Mathics3-live
+clean-serve: all clean-cache serve

@@ -13,8 +13,8 @@
         --card-bg: #ffffff;
       }
 
-      .container, 
-      .sidebar_card, 
+      .container,
+      .sidebar_card,
       .row,
       #main,
       aside {
@@ -117,7 +117,7 @@
         .row {
           flex-direction: column;
         }
-        
+
         aside {
           width: 100%;
         }
@@ -190,15 +190,144 @@
     <!-- that's it, there shouldn't be anything below here in head! -->
   </head>
   <body>
-    <header>
-      <div class="container">
-        <h1><a href="index.html">Mathics3 Live Shell</a></h1>
-      </div>
+    <header style="display: flex; align-items: center; justify-content: flex-start; width: 100%; padding: 20px 0;">
+
+      <!-- Heptatom Logo: With padding at the end to separate it from the Mathics3 logo. -->
+      <a href="https://mathics.org"
+	 target="_blank"
+	 rel="noopener noreferrer"
+	 style="text-decoration: none; display: inline-block; line-height: 0; padding-left: 30px; padding-right: 30px;">
+        <svg width="10mm" height="10mm" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="white" />
+          <defs>
+            <radialGradient id="h_grad" cx="1729.18" cy="521.34" r="12.19" gradientTransform="matrix(10.49,0,0,10.49,-17867,-4878)" gradientUnits="userSpaceOnUse">
+              <stop offset="0" style="stop-color:#000000;stop-opacity:0.6" />
+              <stop offset="1" style="stop-color:#1e1e1e;stop-opacity:1" />
+            </radialGradient>
+          </defs>
+          <g transform="translate(-155.16,-466.04)">
+            <path style="fill:none; stroke:url(#h_grad); stroke-width:10.5;" d="m 282.6,636.1 c -374.6,0 266.1,-308.5 32.6,-15.5 C 81.6,913.5 239.6,220.0 322.9,585.4 406.3,950.7 -37.0,394.8 300.4,557.4 637.9,720.0 -72.6,720.3 264.8,557.8 602.3,395.2 159.2,950.0 242.6,584.7 325.9,219.4 485.1,549.3 251.5,256.3 -233.5,-36.6 405.6,270.7 31.0,270.7 Z M 164.6,557.4 c 14.0,-43.1 73.0,-86.1 118.5,-86.1 45.4,0 104.4,42.9 118.5,86.1 14.0,43.1 -8.5,112.6 -45.2,139.3 -36.7,26.6 -109.7,26.6 -146.4,0 -36.7,-26.6 -59.2,-96.1 -45.2,-139.3 z" />
+          </g>
+        </svg>
+      </a>
+
+      <!-- Mathics3 Logo: separated from Heptatom Logo margin -->
+      <a href="https://mathics.org" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block; line-height: 0; vertical-align: middle;">
+	<svg
+	  width="41.346001mm"
+	  height="14.768923mm"
+	  viewBox="0 0 41.346001 14.768923"
+	  version="1.1"
+	  id="svg20493"
+	  inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+	  sodipodi:docname="Mathics3-logo.svg"
+	  inkscape:export-filename="drawing.svg"
+	  inkscape:export-xdpi="96"
+	  inkscape:export-ydpi="96"
+	  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+	  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+	  xmlns:xlink="http://www.w3.org/1999/xlink"
+	  xmlns="http://www.w3.org/2000/svg"
+	  xmlns:svg="http://www.w3.org/2000/svg">
+	  <sodipodi:namedview
+	    id="namedview20495"
+	    pagecolor="#ffffff"
+	    bordercolor="#666666"
+	    borderopacity="1.0"
+	    inkscape:showpageshadow="2"
+	    inkscape:pageopacity="0.0"
+	    inkscape:pagecheckerboard="0"
+	    inkscape:deskcolor="#d1d1d1"
+	    inkscape:document-units="mm"
+	    showgrid="false"
+	    inkscape:zoom="2"
+	    inkscape:cx="267.75"
+	    inkscape:cy="52.25"
+	    inkscape:window-width="1854"
+	    inkscape:window-height="1011"
+	    inkscape:window-x="1146"
+	    inkscape:window-y="872"
+	    inkscape:window-maximized="1"
+	    inkscape:current-layer="layer1" />
+	  <defs
+	    id="defs20490">
+	    <linearGradient
+	      inkscape:collect="always"
+	      id="linearGradient20533">
+	      <stop
+		style="stop-color:#000000;stop-opacity:1;"
+		offset="0"
+		id="stop20529" />
+	      <stop
+		style="stop-color:#f4e3d7;stop-opacity:1"
+		offset="1"
+		id="stop20531" />
+	    </linearGradient>
+	    <rect
+	      x="29.996094"
+	      y="20.992188"
+	      width="37.498962"
+	      height="57.498413"
+	      id="rect20505" />
+	    <linearGradient
+	      inkscape:collect="always"
+	      xlink:href="#linearGradient20533"
+	      id="linearGradient20535"
+	      x1="11.727519"
+	      y1="7.0216355"
+	      x2="13.798133"
+	      y2="-20.792307"
+	      gradientUnits="userSpaceOnUse"
+	      gradientTransform="matrix(0.85742597,0,0.10905561,1.1662814,0.35498423,-1.7059788)" />
+	  </defs>
+	  <g
+	    inkscape:label="Layer 1"
+	    inkscape:groupmode="layer"
+	    id="layer1"
+	    transform="translate(-1.1178945,-1.4609905)">
+	    <text
+	      xml:space="preserve"
+	      style="font-size:10.5833px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.264583"
+	      x="1.1141716"
+	      y="8.8093557"
+	      id="text20499">
+	      <tspan
+		sodipodi:role="line"
+		id="tspan20497"
+		style="stroke-width:0.264583"
+		x="1.1141716"
+		y="8.8093557">Mathics3
+	      </tspan>
+	    </text>
+	    <text
+	      xml:space="preserve"
+	      transform="scale(0.26458333)"
+	      id="text20503"
+	      style="font-size:40px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';white-space:pre;shape-inside:url(#rect20505);display:inline" />
+	    <text
+	      xml:space="preserve"
+	      style="font-size:9.08537px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';fill:url(#linearGradient20535);fill-opacity:1;stroke-width:0.227133"
+	      x="-3.6577182"
+	      y="-12.643151"
+	      id="text20513"
+	      transform="matrix(1.1676865,0,-0.41230535,-0.85639427,0,0)">
+	      <tspan
+		sodipodi:role="line"
+		id="tspan20511"
+		style="fill:url(#linearGradient20535);fill-opacity:1;stroke-width:0.227133"
+		x="-3.6577182"
+		y="-12.643151">Mathics3
+	      </tspan>
+	    </text>
+	  </g>
+	</svg>
+      </a>
     </header>
+
     <div class="container">
       <section class="row" id="main">
         <div id="content">
-          <h1>Mathics3 Live</h1>
+          <h1 style="margin-top: 0;">Mathics3 Live Shell</h1>
           <iframe
               id="live-iframe"
               width="100%"
@@ -231,7 +360,7 @@
         </aside>
       </section>
       <footer>
-        <p>Copyright © 2025 Mathics3 Development Team.</p>
+        <p>Copyright © 2025-2026 Mathics3 Development Team.</p>
         <p>This page is open source. Fork <a href="https://github.com/Mathics3">the project on GitHub</a> to edit it.</p>
       </footer>
     </div>

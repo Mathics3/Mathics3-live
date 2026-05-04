@@ -1,3 +1,4 @@
+---
 name: Build and Deploy
 
 on:
@@ -13,13 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.11'
+          python-version: '3.14'
+      - name: Install OS dependencies
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -qq libarchive-dev tesseract-ocr
       - name: Install the dependencies
         run: |
           python -m pip install -r requirements.txt
@@ -27,7 +31,7 @@ jobs:
         run: |
           make
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist
 
