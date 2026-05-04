@@ -1,4 +1,3 @@
 [submodule "Mathics3-notebook-frontends"]
     path = Mathics3-notebook-frontends
     url = https://github.com/Mathics3/Mathics3-notebook-frontends.git
-    branch = update-to-mathics-10
