@@ -1,4 +1,7 @@
 #!/bin/env python3
+"""
+A Command-line program to create a JSON kernel.json for Mathics3 JupyLite kernel.
+"""
 import argparse
 import json
 import os
@@ -29,7 +32,7 @@ kernel_json = {
 
 def install_my_kernel_spec(user=True, prefix=None):
     """
-    Creates a JSON 'kernel.json' file custom for the Mathics3 Jupyter kernel of
+    Creates a JSON 'kernel.json' file custom for the Mathics3 JupyterLite kernel of
     this project.
     """
     with TemporaryDirectory(prefix="kernel-", suffix=".json") as td:
