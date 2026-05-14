@@ -40,7 +40,13 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-The above also needs to be done only once.
+Alternatively, you can use pyenv:
+```console
+pyenv local 3.14 # or whatever Python you use
+pip install -r requirements.txt
+```
+
+Like initializing Git submodules, setting up the Python environment needs to be done only once.
 
 Once the virtual environment has been set up with the packages installed, to run the server:
 
