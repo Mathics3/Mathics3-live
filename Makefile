@@ -12,6 +12,9 @@ all: $(NOTEBOOK_WHEEL)
 	jupyter lite build --contents content --output-dir dist
 	cp -f index.html dist/index.html
 
+register-kernel:
+	$(PYTHON3) ./install-kernel.py
+
 #: Remove Jupyter Cache file
 clean-cache:
 	rm .jupyterlite.doit.db || true;
