@@ -26,7 +26,15 @@ kernel_json = {
         "{connection_file}",
     ],
     "display_name": DISPLAY_NAME,
-    "language": "mathematica",
+    "language": "wolfram",
+    "metadata": {
+        "language_info": {
+            "name": "wolfram",
+            "codemirror_mode": "gfm",
+            "file_extension": ".wl",
+            "mimetype": "text/x-wolfram",
+        },
+    },
 }
 
 
