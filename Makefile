@@ -1,7 +1,7 @@
 .PHONY: all clean-cache clean-serve serve runserver wheel
 
 # NOTEBOOK_VERSION Mathics3-Live version. The wheel name has this number in it.
-NOTEBOOK_VERSION ?= 1.0.0
+NOTEBOOK_VERSION ?= 1.0.1.dev0
 
 PYTHON ?= python
 HTTP_PORT ?= 8000
