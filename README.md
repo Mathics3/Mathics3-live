@@ -46,7 +46,22 @@ pyenv local 3.14 # or whatever Python you use
 pip install -r requirements.txt
 ```
 
-Like initializing Git submodules, setting up the Python environment needs to be done only once.
+Like initializing Git submodules, setting up the Python environment needs to be done _per Python release installation_.
+
+**Note**: If you want to upgrade to a newer version of Python...
+
+(Re)Register this virtual environment as a Jupyter kernel:
+```
+python -m ipykernel install --user --name mathics3_env --display-name "Python 3.xx (mathics3)"
+```
+
+Change `3.xx` to the new Python version.
+
+Install your local development package again:
+
+```
+pip install -r requirements.txt
+```
 
 Once the virtual environment has been set up with the packages installed, to run the server:
 
