@@ -144,7 +144,7 @@
       }
 
       document.addEventListener('DOMContentLoaded', function() {
-        var iframe_src = "./repl/index.html?toolbar=1&kernel=python&code=%25pip%20install%20git%2Bhttps%3A%2F%2Fgithub.com%2FMathics3%2FMathics3.git%40master%20git%2Bhttps%3A%2F%2Fgithub.com%2FMathics3%2FMathics3-notebook-frontends.git%40master%0A%25load_ext%20mathics3_kernel.frontend.jupyter";
+        var iframe_src = "./repl/index.html?toolbar=1&kernel=python&code=%25pip%20install%20Mathics3%20https%3A%2F%2Fgithub.com%2FMathics3%2FMathics3-notebook-frontends.git%40master%0A%25load_ext%20mathics3_kernel.frontend.jupyter";
         var statements = getURLParameter('evaluate');
         if (statements) {
           codes = statementsToCodes(statements);
