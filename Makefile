@@ -1,4 +1,4 @@
-.PHONY: all clean-cache clean-serve serve runserver wheel
+.PHONY: all clean clean-serve serve runserver wheel
 
 # NOTEBOOK_VERSION Mathics3-Live version. The wheel name has this number in it.
 NOTEBOOK_VERSION ?= 1.0.1.dev0
@@ -8,7 +8,7 @@ HTTP_PORT ?= 8000
 
 NOTEBOOK_WHEEL=pypi/Mathics3_notebook_frontends-$(NOTEBOOK_VERSION)-py3-none-any.whl
 #: Build everything
-all: clean-cache $(NOTEBOOK_WHEEL)
+all: clean $(NOTEBOOK_WHEEL)
 	jupyter lite build --contents content --output-dir dist
 	cp -f index.html dist/index.html
 
@@ -16,9 +16,10 @@ register-kernel:
 	$(PYTHON3) ./install-kernel.py
 
 #: Remove Jupyter Cache file
-clean-cache:
+clean:
+	rm $(NOTEBOOK_WHEEL) || true;
 	jupyter lite doithtmlclean
-	rm -fr _output
+	rm -fr _output || true
 	rm .jupyterlite.doit.db || true;
 
 
