@@ -8,7 +8,7 @@ HTTP_PORT ?= 8000
 
 NOTEBOOK_WHEEL=pypi/Mathics3_notebook_frontends-$(NOTEBOOK_VERSION)-py3-none-any.whl
 #: Build everything
-all: $(NOTEBOOK_WHEEL)
+all: clean-cache $(NOTEBOOK_WHEEL)
 	jupyter lite build --contents content --output-dir dist
 	cp -f index.html dist/index.html
 
@@ -17,6 +17,8 @@ register-kernel:
 
 #: Remove Jupyter Cache file
 clean-cache:
+	jupyter lite doithtmlclean
+	rm -fr _output
 	rm .jupyterlite.doit.db || true;
 
 
@@ -30,4 +32,4 @@ runserver serve: all
 	cd dist && python3 -m http.server $(HTTP_PORT)
 
 #: Clean Jupyter cache and start a HTTP webserver running Mathics3-live
-clean-serve: all clean-cache serve
+clean-serve: all serve
